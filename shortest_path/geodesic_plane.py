@@ -59,7 +59,7 @@ ax.text(B[0],B[1],B[2],"  Point B",color='green')
 ax.set_xlim(-3,3); ax.set_ylim(-3,3); ax.set_zlim(-0.5,0.5)
 ax.view_init(35,225)
 plt.tight_layout()
-plt.savefig("outputs/geodesic_plane.png", dpi=300)
+plt.savefig("shortest_path/outputs/geodesic_plane.png", dpi=300)
 plt.show()
 
 # Animation

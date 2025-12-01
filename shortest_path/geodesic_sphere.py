@@ -62,7 +62,7 @@ ax.text(B[0],B[1],B[2],"  Point B",color='green')
 ax.set_xlim(-1.1,1.1); ax.set_ylim(-1.1,1.1); ax.set_zlim(-1.1,1.1)
 ax.view_init(25,235)
 plt.tight_layout()
-plt.savefig("outputs/geodesic_sphere.png",dpi=300)
+plt.savefig("shortest_path/outputs/geodesic_sphere.png", dpi=300)
 plt.show()
 
 # Animation

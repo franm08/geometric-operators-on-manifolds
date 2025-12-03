@@ -141,11 +141,11 @@ v = np.linspace(0, np.pi, 30)
 x = np.outer(np.cos(u), np.sin(v))
 y = np.outer(np.sin(u), np.sin(v))
 z = np.outer(np.ones(np.size(u)), np.cos(v))
-ax.plot_wireframe(x, y, z, color="gainsboro", alpha=0.3, linewidth=0.5)
+ax.plot_wireframe(x, y, z, color="black", alpha=0.3, linewidth=0.5)
 
 # Equator / Meridians
 theta_circ = np.linspace(0, 2*np.pi, 100)
-ax.plot(np.cos(theta_circ), np.sin(theta_circ), 0, color='silver', alpha=0.5, lw=1, ls='--')
+ax.plot(np.cos(theta_circ), np.sin(theta_circ), 0, color='black', alpha=0.5, lw=1, ls='--')
 ax.plot(np.zeros_like(theta_circ), np.cos(theta_circ), np.sin(theta_circ), color='silver', alpha=0.5, lw=1, ls='--')
 
 # Rotation Axis

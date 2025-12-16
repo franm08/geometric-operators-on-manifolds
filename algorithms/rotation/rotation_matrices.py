@@ -157,4 +157,30 @@ def update(frame):
     bz = R_active @ np.array([0, 0, 1])
     quiver_x = ax.quiver(0,0,0, bx[0], bx[1], bx[2], color='crimson', lw=3, arrow_length_ratio=0.2)
     quiver_y = ax.quiver(0,0,0, by[0], by[1], by[2], color='forestgreen', lw=3, arrow_length_ratio=0.2)
-    quiver_z = ax.quiver(0,0,0, bz[0], bz[1], bz[2], color='royalblue', l
+    quiver_z = ax.quiver(0,0,0, bz[0], bz[1], bz[2], color='royalblue', lw=3, arrow_length_ratio=0.2)
+    
+    # 4. Update Text Displays
+    # Reset all to default state (Identity matrix, black title)
+    t_rx.set_text("Rotation X ($R_x$)"); t_rx.set_color('black'); txt_rx.set_text(identity_str)
+    t_ry.set_text("Rotation Y ($R_y$)"); t_ry.set_color('black'); txt_ry.set_text(identity_str)
+    t_rz.set_text("Rotation Z ($R_z$)"); t_rz.set_color('black'); txt_rz.set_text(identity_str)
+
+    # Highlight and update the active one
+    if active_axis == 'x':
+        t_rx.set_text(f"Rotation X ($R_x$) - {angle_str}")
+        t_rx.set_color('crimson')
+        txt_rx.set_text(active_mat_str)
+    elif active_axis == 'y':
+        t_ry.set_text(f"Rotation Y ($R_y$) - {angle_str}")
+        t_ry.set_color('forestgreen')
+        txt_ry.set_text(active_mat_str)
+    elif active_axis == 'z':
+        t_rz.set_text(f"Rotation Z ($R_z$) - {angle_str}")
+        t_rz.set_color('royalblue')
+        txt_rz.set_text(active_mat_str)
+
+anim = FuncAnimation(fig, update, frames=total_frames, interval=50)
+print(f"Saving to {SAVE_PATH}...")
+anim.save(SAVE_PATH, writer='pillow', fps=30)
+print("Done.")
+plt.show()
